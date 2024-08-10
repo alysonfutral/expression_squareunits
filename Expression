@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+/**
+ * Program that finds the result of a specified expression after reading input values for x and y.
+ * 
+ * @author Alyson Futral - CPSC 1210 - AO1
+ * @version 09/03/2023
+ */
+public class Expression {
+
+    /**
+     * Finds the result of the expression based on user input.
+     * @param args Command line arguments - not used.
+     */
+    public static void main(String[] args) {
+        Scanner inputValues = new Scanner(System.in);
+
+        double x;
+        double y;
+        double result;
+
+        // Prompt user for expression.
+        System.out.println("result = (10x + 32.6) * (5y - 1.567) / (xy)");
+
+        // Prompt user for x.
+        System.out.print("x = ");
+        x = inputValues.nextDouble();
+
+        // Prompt user for y.
+        System.out.print("y = ");
+        y = inputValues.nextDouble();
+
+        if (x != 0 && y != 0) {
+            // Calculate the expression
+            result = (10 * x + 32.6) * (5 * y - 1.567) / (x * y);
+            // Display the result
+            System.out.println("result = " + result);
+        } else {
+            // Display "undefined" for division by zero
+            System.out.println("result is \"undefined\"");
+        }
+    }
+}
