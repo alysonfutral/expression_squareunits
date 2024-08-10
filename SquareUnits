@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+/**
+ * Simple program that prints measurements for a surveyor.
+ * 
+ * @author Alyson Futral - CPSC 1210 - AO1
+ * @version 09/03/2023
+ */
+public class SquareUnits {
+
+    /**
+     * Converts area in square inches to acres, square yards, square feet, and square inches.
+     * @param args Command line arguments - not used.
+     */
+    public static void main(String[] args) {
+        // Initialize Scanner for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Variables to store input and calculated values
+        int areaInInches;
+        int acres;
+        int squareYards;
+        int squareFeet;
+        int remainingInches;
+
+        // Prompt user for input
+        System.out.print("Enter the area in square inches: ");
+        areaInInches = scanner.nextInt();
+
+        if (areaInInches > 1000000000) {
+            System.out.println("Limit of 1,000,000,000 square inches exceeded!");
+        } else {
+            // Convert square inches to acres
+            acres = areaInInches / 6272640;
+            remainingInches = areaInInches % 6272640;
+
+            // Convert remaining square inches to square yards
+            squareYards = remainingInches / 1296;
+            remainingInches = remainingInches % 1296;
+
+            // Convert remaining square inches to square feet
+            squareFeet = remainingInches / 144;
+            remainingInches = remainingInches % 144;
+
+            // Output the results
+            System.out.println("Number of Units:");
+            System.out.println("\tAcres: " + acres);
+            System.out.println("\tSquare Yards: " + squareYards);
+            System.out.println("\tSquare Feet: " + squareFeet);
+            System.out.println("\tSquare Inches: " + remainingInches);
+        }
+        
+        // Close the scanner
+        scanner.close();
+    }
+}
